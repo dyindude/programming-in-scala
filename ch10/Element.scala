@@ -11,6 +11,7 @@ abstract class Element {
            (line1, line2) <- this.contents zip that.contents
          ) yield line1 + line2
     )
+  }
 }
 
 class ArrayElement(
