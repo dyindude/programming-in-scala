@@ -12,4 +12,7 @@ assert(
     someNumbers.filter(_ > 0))
 ) // true
 
-println(someNumbers)
+someNumbers.foreach(println _)
+someNumbers.foreach(println)
+
+
