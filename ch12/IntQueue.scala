@@ -25,7 +25,7 @@ trait Filtering extends IntQueue {
 }
 
 object Main {
-  def main {
+  def main(args: Array[String]) {
     //these are equivalent if we aren't making changes to the class
     class MyQueue extends BasicIntQueue with Doubling
     val q1 = new BasicIntQueue with Doubling
@@ -33,5 +33,13 @@ object Main {
     q1.put(10)
     q2.put(10)
     assert(q1.get == q2.get)
+
+    //example from p235
+    val q3 = (new BasicIntQueue with Incrementing with Filtering)
+    q3.put(-1)
+    q3.put(0)
+    q3.put(1)
+    assert(q3.get == 1)
+
   }
 }
