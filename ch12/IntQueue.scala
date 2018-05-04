@@ -15,6 +15,15 @@ trait Doubling extends IntQueue {
   abstract override def put(x: Int) = { super.put(2 * x) }
 }
 
+trait Incrementing extends IntQueue {
+  abstract override def put(x: Int) = { super.put(x + 1) }
+}
+trait Filtering extends IntQueue {
+  abstract override def put(x: Int) = {
+    if (x >= 0) super.put(x)
+  }
+}
+
 //these are equivalent if we aren't making changes to the class
 class MyQueue extends BasicIntQueue with Doubling
 val q1 = new BasicIntQueue with Doubling
