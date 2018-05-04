@@ -41,5 +41,13 @@ object Main {
     q3.put(1)
     assert(q3.get == 1)
 
+    //example from p236 demonstrating mixin order
+    val q4 = (new BasicIntQueue with Filtering with Incrementing)
+    q4.put(-1)
+    q4.put(0)
+    q4.put(1)
+    assert(q4.get == 0)
+    assert(q4.get == 1)
+    assert(q4.get == 2)
   }
 }
