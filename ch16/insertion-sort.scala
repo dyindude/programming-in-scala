@@ -21,5 +21,13 @@ object InsertionSort {
     
     val fruit: List[String] = List("apples", "oranges", "pears")
     val a :: b :: rest = fruit
+    //p320 examples
+    val abcde = List('a', 'b', 'c', 'd', 'e')
+    assert((abcde mkString ("[", ",", "]")) == "[a,b,c,d,e]")
+    assert((abcde mkString "") == "abcde")
+    assert((abcde mkString) == "abcde")
+    assert((abcde mkString ("List(", ", ", ")")) == "List(a, b, c, d, e)")
+    assert((abcde mkString ("List(", ", ", ")")) == abcde.toString)
+    
   }
 }
