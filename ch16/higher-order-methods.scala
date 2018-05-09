@@ -31,5 +31,13 @@ object HigherOrder {
       m exists (row => row forall (_ == 0))
     assert((hasZeroRow(List[List[Int]](List(0,0,0,0,0), List(1,2,3,4,5)))) == true)
     assert((hasZeroRow(List[List[Int]](List(1,0,0,0,0), List(1,2,3,4,5)))) == false)
+    //foldLeft /:
+    assert((("" /: words) (_ + " " + _)) == " the quick brown fox")
+    assert(((words.head /: words.tail) (_ + " " + _)) == "the quick brown fox")
+
+    //reverseLeft ch16 p331
+    def reverseLeft[T](xs: List[T]) =
+      (List[T]() /: xs) {(ys, y) => y :: ys}
+    assert((reverseLeft(words)) == List("fox", "brown", "quick", "the"))
   }
 }
