@@ -39,5 +39,7 @@ object HigherOrder {
     def reverseLeft[T](xs: List[T]) =
       (List[T]() /: xs) {(ys, y) => y :: ys}
     assert((reverseLeft(words)) == List("fox", "brown", "quick", "the"))
+    assert((List(1, -3, 4, 2, 6) sortWith (_ < _)) == List(-3, 1, 2, 4, 6))
+    assert((words sortWith (_.length > _.length)) == List("quick", "brown", "the", "fox"))
   }
 }
