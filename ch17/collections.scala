@@ -2,6 +2,7 @@ object Collections {
   def main {
     import scala.collection.mutable
 
+    //sets
     val text = "See Spot run. Run, Spot. Run!"
     val wordsArray = text.split("[ !,.]+")
     val words = mutable.Set.empty[String]
@@ -34,5 +35,19 @@ object Collections {
     assert(words.toString == "Set(mi)")
     words.clear
     assert(words.toString == "Set()")
+
+    //maps
+    def countWords(text: String) = {
+      val counts = mutable.Map.empty[String, Int]
+      for (rawWord <- text.split("[ ,!.]+")) {
+        val word = rawWord.toLowerCase
+        val oldCount =
+          if (counts.contains(word)) counts(word)
+          else 0
+        counts += (word -> (oldCount + 1))
+      }
+      counts
+    }
+    assert(countWords("See spot run! Run, Spot. Run!") == Map("spot" -> 2, "see" -> 1, "run" -> 3))
   }
 }
