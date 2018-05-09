@@ -17,5 +17,10 @@ object ListMethods {
                                                             List(0, 4, 8, 12, 16)))
     //concat - like it sounds
     assert((List.concat(List('a', 'b'), List('c'))) == List[Char]('a', 'b', 'c'))
+    //zipped - working with multiple lists, extra values discarded
+    assert(((List(10, 20),List(3, 4, 5)).zipped.map(_ * _)) == List(30, 80))
+    assert(((List("abc", "de"), List(3, 2)).zipped.forall(_.length == _)) == true)
+    assert(((List("abc", "de"), List(3, 2)).zipped.exists(_.length != _)) == false)
+
   }
 }
