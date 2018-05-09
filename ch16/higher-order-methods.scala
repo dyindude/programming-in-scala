@@ -12,5 +12,8 @@ object HigherOrder {
                                                    'q', 'u', 'i', 'c', 'k',
                                                    'b', 'r', 'o', 'w', 'n',
                                                    'f', 'o', 'x'))
+    var sum = 0
+    List(1, 2, 3, 4, 5) foreach (sum += _)
+    assert(sum == 15)
   }
 }
