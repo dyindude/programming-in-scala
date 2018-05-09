@@ -15,5 +15,14 @@ object HigherOrder {
     var sum = 0
     List(1, 2, 3, 4, 5) foreach (sum += _)
     assert(sum == 15)
+
+    //filter, partition, find, takeWhile, dropWhile, span ch16 p326-327
+    assert((List(1, 2, 3, 4, 5) filter (_ % 2 == 0)) == List(2, 4))
+    assert((List(1, 2, 3, 4, 5) partition (_ % 2 == 0)) == (List(2, 4),List(1, 3, 5)))
+    assert((List(1, 2, 3, 4, 5) find (_ % 2 == 0)) == Some(2))
+    assert((List(1, 2, 3, 4, 5) find (_ <= 0)) == None)
+    assert((List(1, 2, 3, -4, 5) takeWhile (_ > 0)) == List(1, 2, 3))
+    assert((words dropWhile (_ startsWith "t")) == List("quick", "brown", "fox"))
+    assert((List(1, 2, 3, -4, 5) span (_ > 0)) == (List(1, 2, 3), List(-4, 5)))
   }
 }
