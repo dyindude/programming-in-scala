@@ -14,6 +14,10 @@ object InsertionSort {
         case List() => ys
         case x :: xs1 => x :: append(xs1, ys)
       }
+    def rev[T](xs: List[T]): List[T] = xs match {
+      case List() => xs
+      case x :: xs1 => rev(xs1) ::: List(x)
+    }
     
     val fruit: List[String] = List("apples", "oranges", "pears")
     val a :: b :: rest = fruit
