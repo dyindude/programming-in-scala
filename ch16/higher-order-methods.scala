@@ -24,5 +24,12 @@ object HigherOrder {
     assert((List(1, 2, 3, -4, 5) takeWhile (_ > 0)) == List(1, 2, 3))
     assert((words dropWhile (_ startsWith "t")) == List("quick", "brown", "fox"))
     assert((List(1, 2, 3, -4, 5) span (_ > 0)) == (List(1, 2, 3), List(-4, 5)))
+    //forall, exists ch16 p328
+    assert((List(1, 2, 3, 4, 5) forall (_ > 0)) == true)
+    assert((List(1, 2, 3, -4, 5) forall (_ > 0)) == false)
+    def hasZeroRow(m: List[List[Int]]) =
+      m exists (row => row forall (_ == 0))
+    assert((hasZeroRow(List[List[Int]](List(0,0,0,0,0), List(1,2,3,4,5)))) == true)
+    assert((hasZeroRow(List[List[Int]](List(1,0,0,0,0), List(1,2,3,4,5)))) == false)
   }
 }
