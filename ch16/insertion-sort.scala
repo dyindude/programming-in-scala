@@ -29,5 +29,10 @@ object InsertionSort {
     assert((abcde mkString ("List(", ", ", ")")) == "List(a, b, c, d, e)")
     assert((abcde mkString ("List(", ", ", ")")) == abcde.toString)
     
+    //p321-322 iterator example
+    val it = abcde.iterator
+    assert((it.next) == 'a')
+    assert((it.next) == 'b')
+    
   }
 }
