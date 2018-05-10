@@ -76,5 +76,19 @@ object Collections {
     mapMutableWords --= List("one", "two")
     assert(mapMutableWords.toString == "Map(three -> 3)")
 
+    //tuples
+    def longestWord(words: Array[String]) = {
+      var word = words(0)
+      var idx = 0
+      for (i <- 1 until words.length)
+        if (words(i).length > word.length) {
+          word = words(i)
+          idx = i
+        }
+      (word, idx)
+    }
+    assert(longestWord("The quick brown fox".split(" ")) ==  ("quick",1))
+    assert(longestWord("The quick brown fox".split(" "))._1 ==  "quick")
+    assert(longestWord("The quick brown fox".split(" "))._2 ==  1)
   }
 }
