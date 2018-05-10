@@ -33,7 +33,11 @@ class Thermometer {
   def fahrenheit_= (f: Float) = {
     celsius = (f - 32) * 5 / 9
   }
-  override def toString = fahrenheit + "F/" + celsius + "C"
+  def kelvin = celsius + 273.15f
+  def kelvin_= (f: Float) = {
+    celsius = f - 273.15f
+  }
+  override def toString = fahrenheit + "F/" + celsius + "C/" + kelvin + "K"
 }
 object MutableObjects {
   def main {
@@ -46,5 +50,7 @@ object MutableObjects {
     assert(t.fahrenheit == 212.0)
     t.fahrenheit = -40
     assert(t.celsius == -40)
+    t.kelvin = 223.15f
+    assert(t.celsius == -50)
     }
 }
