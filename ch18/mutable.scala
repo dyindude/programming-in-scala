@@ -27,11 +27,24 @@ class Time {
     m = x
   }
 }
+class Thermometer {
+  var celsius: Float = _
+  def fahrenheit = celsius * 9 / 5 + 32
+  def fahrenheit_= (f: Float) = {
+    celsius = (f - 32) * 5 / 9
+  }
+  override def toString = fahrenheit + "F/" + celsius + "C"
+}
 object MutableObjects {
   def main {
     val account = new BankAccount
     account deposit 100
     assert((account withdraw 80) == true)
     assert((account withdraw 80) == false)
+    val t = new Thermometer
+    t.celsius = 100
+    assert(t.fahrenheit == 212.0)
+    t.fahrenheit = -40
+    assert(t.celsius == -40)
     }
 }
